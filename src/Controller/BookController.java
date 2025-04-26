@@ -24,11 +24,7 @@ public class BookController {
             System.out.println(book.toString());
         }
     }
-
-    public static int generateId() {
-        return nextId++;
-    }
-
+    
     public static Book findById(int id) {
         for (Book book : books) {
             if (book.getId() == id) {
