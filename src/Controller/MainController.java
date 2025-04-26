@@ -129,7 +129,7 @@ public class MainController {
         String author = scanner.nextLine();
 
         // Correção aqui, utilizando o método generateId() para gerar um novo ID.
-        int bookId = BookController.generateId();
+        int bookId = BookController.nextId();
         BookController.addBook(title, author);
     }
 

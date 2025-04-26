@@ -24,7 +24,7 @@ public class BookController {
             System.out.println(book.toString());
         }
     }
-    
+
     public static Book findById(int id) {
         for (Book book : books) {
             if (book.getId() == id) {
@@ -32,5 +32,9 @@ public class BookController {
             }
         }
         return null;
+    }
+
+    public static int nextId() {
+        return nextId++;
     }
 }
