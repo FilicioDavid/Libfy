@@ -11,6 +11,7 @@ public class UserController {
     private static int nextId = 0;
 
     static {
+        //set do usuario admin raiz
         users.add(new User(nextId++, "Admin", "admin@biblioteca.com", "admin123", UserType.ADMIN));
     }
 
