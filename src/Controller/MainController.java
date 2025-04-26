@@ -24,8 +24,7 @@ public class MainController {
 
     private static void showLoginMenu() {
         System.out.println("=== Sistema Biblioteca ===");
-        System.out.println("1. Cadastrar Usuário");
-        System.out.println("2. Fazer Login");
+        System.out.println("1. Fazer Login");
         System.out.println("0. Sair");
         System.out.print("Escolha: ");
         int opcao = scanner.nextInt();
@@ -33,17 +32,16 @@ public class MainController {
 
         switch (opcao) {
             case 1:
-                registerUser();
-                break;
-            case 2:
                 login();
                 break;
             case 0:
                 System.exit(0);
+                break;
             default:
                 System.out.println("Opção inválida.");
         }
     }
+
 
     private static void showUserMenu() {
         System.out.println("\nBem-vindo, " + currentUser.getName());
@@ -53,7 +51,8 @@ public class MainController {
         System.out.println("4. Meus Empréstimos");
         if (currentUser.getClassification() == UserType.ADMIN) {
             System.out.println("5. Cadastrar Livro");
-            System.out.println("6. Listar Usuários");
+            System.out.println("6. Cadastrar Usuário"); // <<< novo
+            System.out.println("7. Listar Usuários");
         }
         System.out.println("0. Sair");
         System.out.print("Escolha: ");
@@ -79,6 +78,10 @@ public class MainController {
                 break;
             case 6:
                 if (currentUser.getClassification() == UserType.ADMIN)
+                    registerUser();
+                break;
+            case 7:
+                if (currentUser.getClassification() == UserType.ADMIN)
                     UserController.listUsers();
                 break;
             case 0:
@@ -88,6 +91,7 @@ public class MainController {
                 System.out.println("Opção inválida.");
         }
     }
+
 
     private static void registerUser() {
         System.out.print("Nome: ");
