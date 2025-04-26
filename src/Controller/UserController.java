@@ -8,7 +8,12 @@ import java.util.List;
 
 public class UserController {
     private static List<User> users = new ArrayList<>();
-    private static int nextId = 00;
+    private static int nextId = 0;
+
+    static {
+        users.add(new User(nextId++, "Admin", "admin@biblioteca.com", "admin123", UserType.ADMIN));
+    }
+
 
     public static void addUser(String name, String email,String password, UserType type) {
         User user = new User(nextId++, name, email, password, type);
